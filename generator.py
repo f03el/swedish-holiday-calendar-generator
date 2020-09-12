@@ -10,9 +10,9 @@ from enum import Enum
 from datetime import date, timedelta
 import uuid
 import argparse
+import dateutil.easter
 import icalendar
 from icalendar import Event, vRecur, vFrequency, vWeekday
-import dateutil.easter
 
 
 def generate(start_year, count):

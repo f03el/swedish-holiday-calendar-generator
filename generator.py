@@ -124,10 +124,18 @@ class Calendar(icalendar.Calendar):
         rrule = vRecur()
         rrule['FREQ'] = vFrequency('YEARLY')
         rrule['BYDAY'] = vWeekday('FR')
-        rrule['BYMONTHDAY'] = (30, 31, 1, 2, 3, 4, 5)
-        rrule['BYMONTH'] = (10, 11)
+        rrule['BYMONTHDAY'] = (30, 31)
+        rrule['BYMONTH'] = 10
         event.add('rrule', rrule)
         self.add_component(event)
+        event2 = Holiday(date(year, 1, 1), 'Allhelgonaafton', Work.DEPENDS)
+        rrule2 = vRecur()
+        rrule2['FREQ'] = vFrequency('YEARLY')
+        rrule2['BYDAY'] = vWeekday('FR')
+        rrule2['BYMONTHDAY'] = (1, 2, 3, 4, 5)
+        rrule2['BYMONTH'] = 11
+        event2.add('rrule', rrule2)
+        self.add_component(event2)
 
     def add_all_saints_day(self, year):
         """Add recurring event for all saint's day."""
@@ -135,10 +143,18 @@ class Calendar(icalendar.Calendar):
         rrule = vRecur()
         rrule['FREQ'] = vFrequency('YEARLY')
         rrule['BYDAY'] = vWeekday('SA')
-        rrule['BYMONTHDAY'] = (31, 1, 2, 3, 4, 5, 6)
-        rrule['BYMONTH'] = (10, 11)
+        rrule['BYMONTHDAY'] = 31
+        rrule['BYMONTH'] = 10
         event.add('rrule', rrule)
         self.add_component(event)
+        event2 = Holiday(date(year, 1, 1), 'Alla helgons dag')
+        rrule2 = vRecur()
+        rrule2['FREQ'] = vFrequency('YEARLY')
+        rrule2['BYDAY'] = vWeekday('SA')
+        rrule2['BYMONTHDAY'] = (1, 2, 3, 4, 5, 6)
+        rrule2['BYMONTH'] = 11
+        event2.add('rrule', rrule2)
+        self.add_component(event2)
 
 def main():
     """Parse arguments and start the generation."""

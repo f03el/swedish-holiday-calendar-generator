@@ -58,7 +58,7 @@ class Holiday(Event):
         self.add('dtstart', dtstart)
         self.add('summary', summary)
         if work == Work.DEPENDS:
-            self.add('categories', 'Ledighet enligt avtal')
+            self.add('categories', ('Ledighet enligt avtal',))
             self.add('description',
                      ('Denna dag har inte lagstadgad ställning som arbetsfri'
                       ' dag. Många arbetsplatser har ändå förkortad arbetstid'
